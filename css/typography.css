@@ -1,0 +1,153 @@
+/* ─────────────────────────────────────────────
+   Typography & Text Styles
+   ───────────────────────────────────────────── */
+
+.tagline {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+h1 {
+  margin-top: 10px;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+
+h1 span {
+  color: var(--accent);
+}
+
+.lead {
+  margin-top: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 40rem;
+}
+
+.section-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-kicker .material-icons {
+  font-size: 1rem;
+  color: var(--neon);
+}
+
+.section-title {
+  font-size: 1.6rem;
+}
+
+/* Animated section title characters */
+.section-title .title-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Scene-specific title colors */
+#summary .tagline,
+#summary h1 span {
+  color: var(--scene-plug);
+}
+
+#skills .section-title {
+  color: var(--scene-amp);
+}
+
+#experience .section-title {
+  color: var(--scene-tune);
+}
+
+#projects .section-title {
+  color: var(--scene-press);
+}
+
+#contact .section-title {
+  color: var(--scene-play);
+}
+
+.story-copy-title {
+  color: var(--scene-theme);
+  font-size: clamp(2rem, 2.8vw, 2.35rem);
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+
+.story-copy-lead {
+  color: rgba(248, 251, 255, 0.82);
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 100%;
+  margin-bottom: 12px;
+}
+
+.story-copy-points {
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.story-copy-points li::before {
+  content: "> ";
+  color: var(--scene-theme);
+}
+
+.story-copy-alt-title {
+  color: var(--scene-theme);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.story-copy-alt-lead {
+  color: rgba(248, 251, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.story-copy-alt-points {
+  list-style: none;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.story-copy-alt-points li::after {
+  content: " >";
+  color: var(--scene-theme);
+}
+
+/* Inline hyperlink highlight pills */
+.copy-link {
+  display: inline;
+  color: var(--scene-theme);
+  background: color-mix(in srgb, var(--scene-theme) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--scene-theme) 30%, transparent);
+  border-radius: 5px;
+  padding: 1px 7px;
+  font-size: inherit;
+  text-decoration: none;
+  transition: background 0.18s ease;
+}
+
+.copy-link:hover {
+  background: color-mix(in srgb, var(--scene-theme) 28%, transparent);
+  text-decoration: underline;
+}
+
+.observer-center-value {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--scene-theme) 70%, white 30%);
+}

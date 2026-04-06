@@ -1,0 +1,131 @@
+/* ─────────────────────────────────────────────
+   Visual Effects (Particles, Glows, Animations)
+   ───────────────────────────────────────────── */
+
+/* Scroll color indicator bar */
+.scroll-color-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #48f2c8;
+  z-index: 9998;
+  transition: background 0.3s ease;
+}
+
+/* Floating particles system */
+.particles-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.particle.particle-1 {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(72, 242, 200, 0.8), rgba(72, 242, 200, 0.1));
+  box-shadow: 0 0 10px rgba(72, 242, 200, 0.4);
+}
+
+.particle.particle-2 {
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(125, 211, 252, 0.8), rgba(125, 211, 252, 0.1));
+  box-shadow: 0 0 8px rgba(125, 211, 252, 0.4);
+}
+
+.particle.particle-3 {
+  width: 7px;
+  height: 7px;
+  background: radial-gradient(circle, rgba(255, 179, 71, 0.7), rgba(255, 179, 71, 0.1));
+  box-shadow: 0 0 9px rgba(255, 179, 71, 0.3);
+}
+
+/* Pulsing glow on buttons and cards */
+.btn,
+.panel,
+.bass-panel,
+.chip {
+  position: relative;
+}
+
+.btn::before,
+.panel::before,
+.bass-panel::before,
+.chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  box-shadow: 0 0 0 0 rgba(72, 242, 200, 0.4);
+  pointer-events: none;
+  will-change: box-shadow, opacity;
+}
+
+.btn {
+  --glow-color: rgba(72, 242, 200, 0.4);
+}
+
+.panel {
+  --glow-color: rgba(125, 211, 252, 0.3);
+}
+
+.bass-panel {
+  --glow-color: rgba(72, 242, 200, 0.3);
+}
+
+.chip {
+  --glow-color: rgba(255, 179, 71, 0.3);
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--glow-color);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(0, 0, 0, 0);
+    opacity: 0;
+  }
+}
+
+/* Apply pulse animation */
+.btn::before {
+  animation: glow-pulse 2.4s ease-out infinite;
+}
+
+.panel::before {
+  animation: glow-pulse 3s ease-out infinite 0.4s;
+}
+
+.bass-panel::before {
+  animation: glow-pulse 3.2s ease-out infinite 0.8s;
+}
+
+.chip::before {
+  animation: glow-pulse 2.8s ease-out infinite 1.2s;
+}
+
+/* Floating/orbit decorative elements */
+.orbit-element,
+.floating-decoration {
+  will-change: transform;
+}
+
+.orbit-spin {
+  will-change: transform;
+}

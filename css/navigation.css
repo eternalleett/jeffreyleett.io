@@ -1,0 +1,146 @@
+/* ─────────────────────────────────────────────
+   Navigation & Header
+   ───────────────────────────────────────────── */
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-left: 0;
+  z-index: 20;
+  backdrop-filter: none;
+  background: transparent;
+  padding: 10px 0 12px;
+  transition: opacity 0.25s ease;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: min(1400px, 100% - 40px);
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--neon), #84ffe2);
+  color: #071018;
+  font-weight: 800;
+}
+
+.brand-name {
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  color: rgba(248, 251, 255, 0.82);
+}
+
+/* Section nav dots — top bar on desktop */
+.story-progress {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  z-index: 20;
+  list-style: none;
+  padding: 0;
+  pointer-events: auto;
+}
+
+.story-dot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(154, 162, 194, 0.1);
+  border: 1px solid rgba(154, 162, 194, 0.18);
+  color: var(--muted);
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.story-dot .material-icons {
+  font-size: 1.15rem;
+  pointer-events: none;
+}
+
+.story-dot:hover {
+  background: rgba(72, 242, 200, 0.12);
+  color: var(--neon);
+  border-color: rgba(72, 242, 200, 0.4);
+  transform: translateY(-2px);
+}
+
+.story-dot.active {
+  background: rgba(72, 242, 200, 0.16);
+  color: var(--neon);
+  border-color: var(--scene-theme);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--scene-theme) 35%, transparent);
+}
+
+/* Tooltip on hover */
+.dot-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(9, 12, 30, 0.92);
+  border: 1px solid rgba(154, 162, 194, 0.22);
+  color: var(--text);
+  font-size: 0.76rem;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.story-dot:hover .dot-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (min-width: 961px) {
+  .dot-tooltip {
+    top: calc(100% + 8px);
+    bottom: auto;
+    transform: translateX(-50%) translateY(-4px);
+  }
+
+  .story-dot:hover .dot-tooltip {
+    transform: translateX(-50%) translateY(0);
+  }
+}

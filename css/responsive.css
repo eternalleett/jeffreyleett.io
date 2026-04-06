@@ -1,0 +1,353 @@
+/* ─────────────────────────────────────────────
+   Responsive Design Media Queries
+   ───────────────────────────────────────────── */
+
+/* Tablet & Larger Phones (max-width: 960px) */
+@media (max-width: 960px) {
+  .hero,
+  .section-body,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-layout {
+    padding-top: 0;
+    margin-top: calc(-100vh + var(--header-height));
+  }
+
+  .scroll-story {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 8;
+    height: calc(100vh - var(--header-height));
+  }
+
+  .story-track {
+    min-height: calc(100vh - var(--header-height));
+  }
+
+  .story-copy {
+    left: calc(50% - 342px);
+    width: min(310px, 34vw);
+    max-height: 40vh;
+  }
+
+  .story-copy-alt {
+    right: calc(50% - 342px);
+    width: min(310px, 34vw);
+    max-height: 36vh;
+  }
+
+  .story-orbit {
+    display: none;
+  }
+
+  .pixel-cat-layer {
+    display: none;
+  }
+
+  .story-sections {
+    margin-top: -68vh;
+  }
+
+  .story-sections .section:first-child {
+    padding-top: 80vh;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 24px;
+  }
+
+  .bass-panel {
+    margin-top: 18px;
+  }
+
+  .desktop-contact-sidebar {
+    display: none !important;
+  }
+}
+
+/* Desktop (960px+) - show right sidebar */
+@media (min-width: 961px) {
+  .desktop-contact-sidebar {
+    display: flex;
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .story-orbit {
+    display: none;
+  }
+}
+
+/* Tablets & Medium Phones (max-width: 768px) */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 8px 0;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  .topbar.topbar-compact {
+    background: transparent;
+  }
+
+  .page {
+    width: min(100% - 20px, 1400px);
+  }
+
+  .nav-inner {
+    justify-content: center;
+  }
+
+  .brand {
+    margin-inline: auto;
+  }
+
+  .brand-name {
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+  }
+
+  .story-dot {
+    width: 30px;
+    height: 30px;
+  }
+
+  .story-dot .material-icons {
+    font-size: 1rem;
+  }
+
+  .story-track::before,
+  .story-track::after,
+  .story-atmosphere {
+    opacity: 0.65;
+  }
+}
+
+/* Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 20px;
+  }
+
+  .page {
+    padding-bottom: 20px;
+  }
+
+  .story-track {
+    height: calc(100vh - var(--header-height));
+    min-height: calc(100vh - var(--header-height));
+    display: block;
+    position: relative;
+    padding: calc(var(--header-height) + 8px) 0 20px;
+  }
+
+  .story-copy {
+    position: absolute;
+    top: calc(var(--header-height) + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92vw, 360px);
+    text-align: center;
+    margin: 0;
+    padding: 12px 14px;
+    background: linear-gradient(180deg, rgba(10, 16, 38, 0.72), rgba(8, 12, 28, 0.5));
+    border: 1px solid rgba(154, 162, 194, 0.18);
+    border-radius: 14px;
+    box-shadow: 0 16px 34px rgba(3, 6, 18, 0.24);
+    backdrop-filter: blur(10px);
+    max-height: 22vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    z-index: 3;
+  }
+
+  .story-copy::before {
+    left: 12px;
+    right: 12px;
+  }
+
+  .story-copy-title {
+    font-size: 1.4rem;
+  }
+
+  .story-copy-lead {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .story-copy-points {
+    font-size: 0.85rem;
+  }
+
+  .story-copy-alt {
+    position: absolute;
+    top: auto;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: min(92vw, 360px);
+    text-align: center;
+    margin: 0;
+    background: linear-gradient(180deg, rgba(10, 16, 38, 0.72), rgba(8, 12, 28, 0.5));
+    border: 1px solid rgba(154, 162, 194, 0.18);
+    border-radius: 14px;
+    padding: 10px 14px;
+    box-shadow: 0 14px 30px rgba(3, 6, 18, 0.22);
+    backdrop-filter: blur(10px);
+    max-height: 18vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    z-index: 3;
+  }
+
+  .story-copy-alt::before {
+    left: 12px;
+    right: 12px;
+  }
+
+  .story-copy-alt.hidden {
+    display: none;
+  }
+
+  .story-viewport {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(56vw, 210px);
+    height: min(56vw, 210px);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .story-orbit {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    display: block;
+    overflow: visible;
+    padding: 0;
+    list-style: none;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .story-orbit .orbit-chip {
+    position: absolute;
+    min-width: 82px;
+    max-width: 82px;
+    padding: 7px 8px;
+    border-radius: 10px;
+    gap: 3px;
+    transform: none;
+    min-height: auto;
+  }
+
+  .story-orbit .orbit-chip-1 {
+    right: auto;
+    left: 4px;
+    top: calc(50% - 70px);
+  }
+
+  .story-orbit .orbit-chip-2 {
+    left: auto;
+    right: 4px;
+    top: calc(50% - 70px);
+  }
+
+  .story-orbit .orbit-chip-3 {
+    right: auto;
+    left: 4px;
+    top: calc(50% + 22px);
+  }
+
+  .story-orbit .orbit-chip-4 {
+    left: auto;
+    right: 4px;
+    top: calc(50% + 22px);
+  }
+
+  .story-orbit .orbit-chip-kicker {
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .story-orbit .orbit-chip-text {
+    font-size: 0.68rem;
+    line-height: 1.1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .story-orbit .orbit-chip::after {
+    width: 6px;
+    height: 6px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .story-copy::-webkit-scrollbar,
+  .story-copy-alt::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  .observer-ring-wrap {
+    width: min(300px, 84vw);
+    height: min(300px, 84vw);
+  }
+
+  .story-progress {
+    gap: 4px;
+  }
+
+  .story-dot {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .story-dot .material-icons {
+    font-size: 0.9rem;
+  }
+
+  .dot-tooltip {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+
+  .desktop-contact-sidebar {
+    display: none !important;
+  }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cat-tail,
+  .cat-leg {
+    animation: none;
+  }
+}

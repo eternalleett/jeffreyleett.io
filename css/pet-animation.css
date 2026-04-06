@@ -1,0 +1,258 @@
+/* ─────────────────────────────────────────────
+   Pet Animation (Pixel Cat & Dog)
+   ───────────────────────────────────────────── */
+
+.pixel-cat-layer {
+  position: absolute;
+  top: calc(18% - 54px);
+  left: max(20px, calc(50% - 560px));
+  --pet-lane-width: min(320px, 28vw);
+  width: var(--pet-lane-width);
+  height: 56px;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+  --pet-sprite-width: 82px;
+  --pet-range: max(18px, calc((var(--pet-lane-width) - var(--pet-sprite-width)) / 2));
+}
+
+.pixel-road {
+  display: none;
+}
+
+.pixel-cat {
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  bottom: auto;
+  width: var(--pet-sprite-width);
+  height: 50px;
+  image-rendering: pixelated;
+  will-change: transform;
+  animation: cat-track 15.3s linear infinite;
+  display: block;
+}
+
+.pixel-cat-sprite {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.pixel-cat > span {
+  display: none !important;
+}
+
+.cat-body,
+.cat-head,
+.cat-tail,
+.cat-ear,
+.cat-leg,
+.cat-body::before,
+.cat-body::after,
+.cat-head::before,
+.cat-head::after,
+.cat-leg::after {
+  display: none !important;
+}
+
+.cat-body,
+.cat-head,
+.cat-tail,
+.cat-ear,
+.cat-leg {
+  position: absolute;
+  display: block;
+  background: #f2c99a;
+  box-shadow: 0 0 0 1px rgba(16, 12, 8, 0.58) inset;
+}
+
+.cat-body {
+  left: 17px;
+  top: 13px;
+  width: 36px;
+  height: 19px;
+  border-radius: 2px;
+  background: #f0c493;
+}
+
+.cat-body::before,
+.cat-body::after,
+.cat-head::before,
+.cat-head::after,
+.cat-leg::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+.cat-body::before {
+  left: 5px;
+  top: 4px;
+  width: 24px;
+  height: 2px;
+  background: rgba(149, 96, 52, 0.5);
+  box-shadow: 0 5px 0 rgba(149, 96, 52, 0.42);
+}
+
+.cat-body::after {
+  left: 10px;
+  top: 7px;
+  width: 14px;
+  height: 8px;
+  border-radius: 2px;
+  background: #f7e0c2;
+}
+
+.cat-head {
+  left: 46px;
+  top: 8px;
+  width: 17px;
+  height: 14px;
+  border-radius: 2px;
+  background: #f8dcb7;
+}
+
+.cat-head::before {
+  left: 4px;
+  top: 4px;
+  width: 2px;
+  height: 2px;
+  background: #1d263f;
+  box-shadow: 6px 0 0 #1d263f;
+}
+
+.cat-head::after {
+  left: 7px;
+  top: 8px;
+  width: 3px;
+  height: 2px;
+  background: #c77887;
+}
+
+.cat-ear {
+  width: 7px;
+  height: 7px;
+  top: 3px;
+}
+
+.ear-left {
+  left: 48px;
+}
+
+.ear-right {
+  left: 56px;
+}
+
+.cat-tail {
+  left: 5px;
+  top: 12px;
+  width: 16px;
+  height: 5px;
+  transform-origin: right center;
+  border-radius: 2px;
+  animation: tail-swish 0.9s steps(2) infinite;
+}
+
+.cat-leg {
+  width: 6px;
+  height: 12px;
+  top: 28px;
+  border-radius: 1px;
+  background: #dfab74;
+}
+
+.cat-leg::after {
+  left: 0;
+  bottom: -1px;
+  width: 6px;
+  height: 2px;
+  background: #f6d9b2;
+}
+
+.leg-front {
+  left: 40px;
+  animation: leg-step-a 0.52s steps(2) infinite;
+}
+
+.leg-back {
+  left: 23px;
+  animation: leg-step-b 0.52s steps(2) infinite;
+}
+
+@keyframes cat-track {
+  0% {
+    transform: translate3d(calc(var(--pet-range) * -1), 0, 0);
+  }
+  50% {
+    transform: translate3d(var(--pet-range), 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(var(--pet-range) * -1), 0, 0);
+  }
+}
+
+.pixel-dog {
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  bottom: auto;
+  width: var(--pet-sprite-width);
+  height: 50px;
+  image-rendering: pixelated;
+  will-change: transform;
+  animation: dog-track 22s linear infinite;
+  display: block;
+}
+
+.pixel-dog-sprite {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+@keyframes dog-track {
+  0% {
+    transform: translate3d(calc(var(--pet-range) * -1), 0, 0);
+  }
+  50% {
+    transform: translate3d(var(--pet-range), 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(var(--pet-range) * -1), 0, 0);
+  }
+}
+
+@keyframes tail-swish {
+  0%,
+  100% {
+    transform: rotate(16deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+}
+
+@keyframes leg-step-a {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+}
+
+@keyframes leg-step-b {
+  0%,
+  100% {
+    transform: translateY(1px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}

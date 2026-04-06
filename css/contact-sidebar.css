@@ -1,0 +1,56 @@
+/* ─────────────────────────────────────────────
+   Desktop Contact Sidebar
+   ───────────────────────────────────────────── */
+
+.desktop-contact-sidebar {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.contact-links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(248, 251, 255, 0.7);
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--scene-theme) 24%, transparent);
+  background: rgba(13, 19, 43, 0.4);
+}
+
+.contact-link:hover {
+  color: var(--scene-theme);
+  border-color: color-mix(in srgb, var(--scene-theme) 60%, transparent);
+  background: color-mix(in srgb, var(--scene-theme) 12%, rgba(13, 19, 43, 0.6));
+  transform: translateY(-4px);
+}
+
+.contact-link .material-icons {
+  font-size: 24px;
+}
+
+.contact-brand-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-link-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}

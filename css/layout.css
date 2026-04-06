@@ -1,0 +1,63 @@
+/* ─────────────────────────────────────────────
+   Layout & Page Structure
+   ───────────────────────────────────────────── */
+
+.page {
+  width: min(1400px, 100% - 40px);
+  margin: 0 auto;
+  padding-top: var(--header-height);
+  padding-bottom: 20px;
+}
+
+section {
+  scroll-margin-top: calc(var(--header-height) + 8px);
+}
+
+.hero {
+  display: block;
+  gap: 28px;
+  align-items: center;
+  padding: 32px 0 40px;
+  border-bottom: 0;
+  min-height: calc(100vh - 80px);
+}
+
+.section {
+  padding: 42px 0 10px;
+  border-bottom: 0;
+}
+
+.section-header {
+  margin-bottom: 18px;
+}
+
+.section-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 24px;
+  font-size: 0.96rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.story-layout {
+  display: block;
+  padding: 0;
+  margin-top: calc(-100vh + var(--header-height));
+}
+
+.story-sections {
+  min-width: 0;
+  margin-top: -70vh;
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.story-sections .section:first-child {
+  padding-top: 92vh;
+}
+
+.story-sections .section {
+  min-height: 95vh;
+}

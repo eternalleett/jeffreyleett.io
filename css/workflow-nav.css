@@ -1,0 +1,201 @@
+/* Desktop workflow-style navigation (keeps original nav available) */
+.workflow-nav {
+  display: none;
+}
+
+@media (min-width: 961px) {
+  .workflow-nav {
+    position: absolute;
+    right: 152px;
+    left: auto;
+    top: 92px;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    list-style: none;
+    padding: 12px 12px 12px 0;
+    margin: 0;
+    pointer-events: auto;
+  }
+
+  .workflow-nav::before {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 56px;
+    bottom: 56px;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--scene-theme) 58%, rgba(154, 162, 194, 0.3)),
+      rgba(154, 162, 194, 0.26)
+    );
+    box-shadow: 0 0 10px color-mix(in srgb, var(--scene-theme) 35%, transparent);
+    opacity: 0.7;
+  }
+
+  .workflow-terminal {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 170px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px dashed rgba(154, 162, 194, 0.42);
+    background: rgba(9, 13, 30, 0.5);
+    color: rgba(228, 236, 255, 0.82);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .workflow-terminal.start {
+    color: color-mix(in srgb, var(--scene-theme) 78%, white 22%);
+  }
+
+  .workflow-terminal.end {
+    color: rgba(255, 188, 132, 0.92);
+  }
+
+  .workflow-step {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 170px;
+    text-decoration: none;
+    color: rgba(232, 238, 255, 0.9);
+    padding: 8px 10px 8px 34px;
+    border-radius: 10px;
+    border: 1px solid rgba(154, 162, 194, 0.2);
+    background: rgba(9, 13, 30, 0.64);
+    transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .workflow-step::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: rgba(154, 162, 194, 0.72);
+    box-shadow: 0 0 0 3px rgba(9, 13, 30, 0.76);
+    transition: background 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .workflow-step .material-icons {
+    font-size: 1rem;
+    opacity: 0.88;
+  }
+
+  .workflow-step-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .workflow-step:hover {
+    transform: translateX(4px);
+    border-color: color-mix(in srgb, var(--scene-theme) 58%, rgba(154, 162, 194, 0.3));
+    background: color-mix(in srgb, var(--scene-theme) 12%, rgba(9, 13, 30, 0.78));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--scene-theme) 34%, transparent);
+  }
+
+  .workflow-step.active {
+    border-color: color-mix(in srgb, var(--scene-theme) 65%, rgba(154, 162, 194, 0.3));
+    background: color-mix(in srgb, var(--scene-theme) 15%, rgba(9, 13, 30, 0.82));
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--scene-theme) 30%, transparent);
+  }
+
+  .workflow-step.active::before {
+    background: color-mix(in srgb, var(--scene-theme) 82%, white 18%);
+    box-shadow:
+      0 0 0 3px rgba(9, 13, 30, 0.82),
+      0 0 12px color-mix(in srgb, var(--scene-theme) 58%, transparent);
+  }
+
+  body:not(.use-classic-nav) .story-progress {
+    display: none;
+  }
+
+  body:not(.use-classic-nav) .workflow-nav {
+    display: grid;
+  }
+
+  body.use-classic-nav .workflow-nav {
+    display: none;
+  }
+}
+
+/* Narrow desktop: switch workflow nav to icon-only mode */
+@media (min-width: 961px) and (max-width: 1280px) {
+  body:not(.use-classic-nav) .workflow-nav {
+    display: flex;
+  }
+
+  .workflow-nav {
+    left: 50%;
+    right: auto;
+    top: 64px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+  }
+
+  .workflow-nav::before {
+    display: none;
+  }
+
+  .workflow-terminal {
+    display: none;
+  }
+
+  .workflow-step {
+    min-width: 54px;
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    justify-content: center;
+    padding: 0;
+    gap: 0;
+  }
+
+  .workflow-step::before {
+    left: 50%;
+    top: -8px;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+  }
+
+  .workflow-step .material-icons {
+    font-size: 1.15rem;
+    opacity: 0.94;
+  }
+
+  .workflow-step:hover {
+    transform: translateY(-2px);
+  }
+
+  .workflow-step-label {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .workflow-nav {
+    display: none !important;
+  }
+}

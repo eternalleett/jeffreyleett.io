@@ -1,0 +1,111 @@
+/* ─────────────────────────────────────────────
+   Orbit Chips
+   ───────────────────────────────────────────── */
+
+.story-orbit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  list-style: none;
+  z-index: 4;
+  pointer-events: none;
+  display: none;
+}
+
+.orbit-chip {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 124px;
+  max-width: 140px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(13, 19, 43, 0.9), rgba(9, 13, 30, 0.7));
+  border: 1px solid color-mix(in srgb, var(--scene-theme) 24%, rgba(154, 162, 194, 0.2));
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+  transition: opacity 0.24s ease, transform 0.24s ease, border-color 0.24s ease;
+  pointer-events: auto;
+}
+
+.orbit-chip::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  top: 12px;
+  right: 12px;
+  background: color-mix(in srgb, var(--scene-theme) 78%, white 22%);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--scene-theme) 50%, transparent);
+}
+
+.orbit-chip.is-hidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.orbit-chip-kicker {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--scene-theme) 74%, white 26%);
+}
+
+.orbit-chip-text {
+  color: rgba(248, 251, 255, 0.88);
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
+.orbit-chip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(248, 251, 255, 0.94);
+  text-decoration: none;
+}
+
+.orbit-chip-link:hover {
+  color: color-mix(in srgb, var(--scene-theme) 78%, white 22%);
+  text-decoration: underline;
+}
+
+.orbit-chip-icon {
+  font-size: 0.88rem;
+  line-height: 1;
+}
+
+.orbit-chip-brand-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: color-mix(in srgb, var(--scene-theme) 78%, white 22%);
+  flex: 0 0 auto;
+}
+
+.orbit-chip-link-label {
+  line-height: 1.2;
+}
+
+.orbit-chip-1 {
+  top: calc(50% - 86px);
+  left: calc(50% - 364px);
+}
+
+.orbit-chip-2 {
+  top: calc(50% - 86px);
+  left: calc(50% + 224px);
+}
+
+.orbit-chip-3 {
+  top: calc(50% + 30px);
+  left: calc(50% - 364px);
+}
+
+.orbit-chip-4 {
+  top: calc(50% + 30px);
+  left: calc(50% + 224px);
+}

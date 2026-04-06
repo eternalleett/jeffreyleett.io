@@ -1,0 +1,39 @@
+/* ─────────────────────────────────────────────
+   CSS Variables & Resets
+   ───────────────────────────────────────────── */
+
+:root {
+  --bg: #050711;
+  --bg-alt: #080b1a;
+  --panel: rgba(9, 12, 30, 0.9);
+  --border: rgba(212, 215, 255, 0.16);
+  --text: #f8fbff;
+  --muted: #9aa2c2;
+  --accent: #ffb347;
+  --neon: #48f2c8;
+  --scene-theme: #48f2c8;
+  --scene-plug: #48f2c8;
+  --scene-amp: #7dd3fc;
+  --scene-tune: #ffb347;
+  --scene-press: #facc15;
+  --scene-play: #ff6b7a;
+  --header-height: 92px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 8px);
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #07193e 0%, #0a1228 48%, #111318 100%);
+  color: var(--text);
+}

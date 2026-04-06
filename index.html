@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title >JeffreyLeett | Personal Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <!-- CSS Component Files -->
+  <link rel="stylesheet" href="./css/variables.css" />
+  <link rel="stylesheet" href="./css/layout.css" />
+  <link rel="stylesheet" href="./css/navigation.css" />
+  <link rel="stylesheet" href="./css/workflow-nav.css" />
+  <link rel="stylesheet" href="./css/typography.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/bass-panel.css" />
+  <link rel="stylesheet" href="./css/scroll-story.css" />
+  <link rel="stylesheet" href="./css/pet-animation.css" />
+  <link rel="stylesheet" href="./css/orbit-chips.css" />
+  <link rel="stylesheet" href="./css/visual-effects.css" />
+  <link rel="stylesheet" href="./css/contact-sidebar.css" />
+  <link rel="stylesheet" href="./css/fake-chatroom.css" />
+  <link rel="stylesheet" href="./css/loading-screen.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "animejs": "https://esm.sh/animejs@4.3.6"
+      }
+    }
+  </script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <div class="page-loader" id="page-loader" aria-live="polite" aria-label="Page loading">
+    <div class="page-loader-shell">
+      <p class="page-loader-title">Initializing Groove Stage</p>
+      <div class="page-loader-track" aria-hidden="true">
+        <span class="page-loader-center"></span>
+        <span class="page-loader-laser left"></span>
+        <span class="page-loader-laser right"></span>
+        <span class="page-loader-head left"></span>
+        <span class="page-loader-head right"></span>
+        <span class="page-loader-fire">
+          <span class="page-loader-fire-dot" style="--x:-22px; --y:-18px; --delay:0.02s;"></span>
+          <span class="page-loader-fire-dot" style="--x:18px; --y:-21px; --delay:0.08s;"></span>
+          <span class="page-loader-fire-dot" style="--x:-28px; --y:-6px; --delay:0.13s;"></span>
+          <span class="page-loader-fire-dot" style="--x:24px; --y:-10px; --delay:0.18s;"></span>
+          <span class="page-loader-fire-dot" style="--x:-16px; --y:14px; --delay:0.23s;"></span>
+          <span class="page-loader-fire-dot" style="--x:12px; --y:15px; --delay:0.28s;"></span>
+          <span class="page-loader-fire-dot" style="--x:-34px; --y:4px; --delay:0.33s;"></span>
+          <span class="page-loader-fire-dot" style="--x:30px; --y:2px; --delay:0.38s;"></span>
+        </span>
+      </div>
+      <p class="page-loader-progress" id="page-loader-progress">0%</p>
+    </div>
+  </div>
+
+  <div class="scroll-color-indicator"></div>
+  <div class="particles-container" aria-hidden="true"></div>
+  <div class="page">
+    <!-- Minimal brand bar -->
+    <header class="topbar">
+      <div class="nav-inner">
+        <a href="#summary" class="brand">
+          <span class="brand-mark">JL</span>
+          <span class="brand-name">Jeffreyleett Personal Page</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero / intro -->
+    <main id="top">
+      <section class="hero" id="summary">
+        <div>
+          <p class="lead">
+          </p>
+        </div>
+      </section>
+
+      <section class="story-layout">
+        <aside class="scroll-story" id="bass-story" aria-label="Bass story animation">
+          <div class="story-track">
+            <div class="story-observer" aria-hidden="true">
+              <div class="observer-ring-wrap">
+                <svg class="observer-ring" viewBox="0 0 140 140">
+                  <circle class="observer-bg" cx="70" cy="70" r="54"></circle>
+                  <circle class="observer-fg" cx="70" cy="70" r="54"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="story-atmosphere" aria-hidden="true">
+              <span class="story-halo story-halo-a"></span>
+              <span class="story-halo story-halo-b"></span>
+              <span class="story-beam story-beam-a"></span>
+              <span class="story-beam story-beam-b"></span>
+            </div>
+            <div class="pixel-cat-layer" aria-hidden="true">
+              <div class="pixel-cat"></div>
+              <div class="pixel-dog"></div>
+            </div>
+            <ul class="story-orbit" id="story-orbit">
+              <li class="orbit-chip orbit-chip-1">
+                <span class="orbit-chip-kicker"></span>
+                <span class="orbit-chip-text"></span>
+              </li>
+              <li class="orbit-chip orbit-chip-2">
+                <span class="orbit-chip-kicker"></span>
+                <span class="orbit-chip-text"></span>
+              </li>
+              <li class="orbit-chip orbit-chip-3">
+                <span class="orbit-chip-kicker"></span>
+                <span class="orbit-chip-text"></span>
+              </li>
+              <li class="orbit-chip orbit-chip-4">
+                <span class="orbit-chip-kicker"></span>
+                <span class="orbit-chip-text"></span>
+              </li>
+            </ul>
+            <div class="story-copy" id="story-copy" aria-live="polite">
+              <h3 class="story-copy-title" id="story-copy-title">Hello, I'm Jeffrey Leett</h3>
+              <p class="story-copy-lead" id="story-copy-lead">Business analyst by day, bass guitarist by night. I enjoy designing clear workflows, collaborating with stakeholders, and laying down solid low&#x2011;end foundations&mdash;whether in operations or in a groove.</p>
+              <ul class="story-copy-points" id="story-copy-points">
+                <li>Based in Hong Kong</li>
+                <li>Bass &middot; Rock &middot; Funk &middot; Worship</li>
+                <li>HTML &middot; CSS &middot; JS &middot; Python</li>
+              </ul>
+            </div>
+            <div class="story-copy-alt hidden" id="story-copy-alt" aria-live="polite">
+              <h3 class="story-copy-alt-title" id="story-copy-alt-title"></h3>
+              <p class="story-copy-alt-lead" id="story-copy-alt-lead"></p>
+              <ul class="story-copy-alt-points" id="story-copy-alt-points"></ul>
+            </div>
+            <div class="story-viewport">
+            <!-- Scene 1: Plug In -->
+            <div class="story-scene scene-plugin" id="scene-plugin">
+              <svg viewBox="0 0 400 300" class="story-svg">
+                <defs>
+                  <radialGradient id="heartGlow" cx="50%" cy="46%" r="58%">
+                    <stop offset="0%" stop-color="#84ffe2" stop-opacity="0.48"/>
+                    <stop offset="100%" stop-color="#84ffe2" stop-opacity="0"/>
+                  </radialGradient>
+                  <linearGradient id="heartFill" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#8ffff1"/>
+                    <stop offset="100%" stop-color="#48f2c8"/>
+                  </radialGradient>
+                </defs>
+                <circle class="heart-pulse hp1" cx="200" cy="150" r="54" fill="none" stroke="#7cf4d9" stroke-width="2" opacity="0.16"/>
+                <circle class="heart-pulse hp2" cx="200" cy="150" r="72" fill="none" stroke="#7cf4d9" stroke-width="1.5" opacity="0.08"/>
+                <circle class="heart-glow" cx="200" cy="150" r="88" fill="url(#heartGlow)" opacity="0.24"/>
+                <path class="heart-core" d="M200 220 C190 208 130 169 130 121 C130 92 150 72 176 72 C190 72 198 78 200 87 C202 78 210 72 224 72 C250 72 270 92 270 121 C270 169 210 208 200 220 Z" fill="url(#heartFill)" stroke="#d9fff7" stroke-width="2.25"/>
+                <path class="heart-shine" d="M172 105 C181 95 190 91 200 92" fill="none" stroke="#ecfffb" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+              </svg>
+              <p class="story-label">Feel the heartbeat</p>
+            </div>
+
+            <!-- Scene 2: Toggle + Volume -->
+            <div class="story-scene scene-amp" id="scene-amp">
+              <svg viewBox="0 0 400 300" class="story-svg">
+                <g transform="translate(6 12)">
+                  <rect x="90" y="72" width="220" height="168" rx="14" fill="#1a1d2e" stroke="#48f2c8" stroke-width="1.5"/>
+                  <rect x="104" y="88" width="192" height="52" rx="8" fill="none" stroke="#353a56" stroke-width="1"/>
+                  <rect x="118" y="162" width="164" height="58" rx="10" fill="#111425" stroke="#2e3350" stroke-width="1"/>
+                  <rect x="122" y="102" width="30" height="16" rx="4" fill="#272d45" stroke="#4b547e" stroke-width="1"/>
+                  <circle class="amp-power-led" cx="142" cy="110" r="4" fill="#333"/>
+                  <rect x="230" y="96" width="32" height="20" rx="5" fill="#22283d" stroke="#4b547e" stroke-width="1"/>
+                  <circle class="amp-toggle" cx="240" cy="106" r="7" fill="#9aa2c2"/>
+                  <circle class="volume-knob" cx="186" cy="189" r="22" fill="#2a2f45" stroke="#7a86b8" stroke-width="1.2"/>
+                  <line class="volume-pointer" x1="186" y1="189" x2="186" y2="172" stroke="#ffb347" stroke-width="2" stroke-linecap="round"/>
+                  <rect x="230" y="178" width="48" height="22" rx="6" fill="#1e2438" stroke="#4b547e" stroke-width="1"/>
+                  <rect class="volume-level" x="234" y="182" width="0" height="14" rx="4" fill="#ffb347"/>
+                </g>
+              </svg>
+              <p class="story-label">Power and volume</p>
+            </div>
+
+            <!-- Scene 3: Tune Up -->
+            <div class="story-scene scene-tune" id="scene-tune">
+              <svg viewBox="0 0 400 300" class="story-svg">
+                <g transform="translate(12 0)">
+                  <!-- Bass headstock -->
+                  <rect x="160" y="20" width="80" height="220" rx="12" fill="#7c5228" stroke="#5a3a18" stroke-width="1.5"/>
+                  <rect x="170" y="20" width="60" height="40" rx="8" fill="#8b6930"/>
+                  <!-- Tuning pegs -->
+                  <g class="tuning-peg peg1">
+                    <circle cx="155" cy="80" r="10" fill="#c0c0c0" stroke="#888" stroke-width="1.5"/>
+                    <line x1="155" y1="70" x2="155" y2="80" stroke="#666" stroke-width="2"/>
+                  </g>
+                  <g class="tuning-peg peg2">
+                    <circle cx="155" cy="115" r="10" fill="#c0c0c0" stroke="#888" stroke-width="1.5"/>
+                    <line x1="155" y1="105" x2="155" y2="115" stroke="#666" stroke-width="2"/>
+                  </g>
+                  <g class="tuning-peg peg3">
+                    <circle cx="245" cy="80" r="10" fill="#c0c0c0" stroke="#888" stroke-width="1.5"/>
+                    <line x1="245" y1="70" x2="245" y2="80" stroke="#666" stroke-width="2"/>
+                  </g>
+                  <g class="tuning-peg peg4">
+                    <circle cx="245" cy="115" r="10" fill="#c0c0c0" stroke="#888" stroke-width="1.5"/>
+                    <line x1="245" y1="105" x2="245" y2="115" stroke="#666" stroke-width="2"/>
+                  </g>
+                  <!-- Nut -->
+                  <rect x="172" y="140" width="56" height="6" rx="2" fill="#e8dcc8"/>
+                  <!-- Strings -->
+                  <line class="tune-string ts1" x1="180" y1="146" x2="180" y2="240" stroke="#eee" stroke-width="1.5"/>
+                  <line class="tune-string ts2" x1="190" y1="146" x2="190" y2="240" stroke="#ddd" stroke-width="1.5"/>
+                  <line class="tune-string ts3" x1="205" y1="146" x2="205" y2="240" stroke="#ccc" stroke-width="2"/>
+                  <line class="tune-string ts4" x1="218" y1="146" x2="218" y2="240" stroke="#bbb" stroke-width="2.5"/>
+                  <!-- Hand silhouette -->
+                  <g class="tuning-hand">
+                    <ellipse cx="140" cy="80" rx="22" ry="16" fill="rgba(255,179,71,0.25)" stroke="#ffb347" stroke-width="1"/>
+                    <line x1="128" y1="68" x2="135" y2="74" stroke="#ffb347" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="133" y1="65" x2="138" y2="73" stroke="#ffb347" stroke-width="2" stroke-linecap="round"/>
+                  </g>
+                </g>
+              </svg>
+              <p class="story-label">Tune up the strings</p>
+            </div>
+
+            <!-- Scene 4: Press Fingerboard -->
+            <div class="story-scene scene-fret" id="scene-fret">
+              <svg viewBox="0 0 400 300" class="story-svg">
+                <g transform="translate(8 0)">
+                  <rect x="128" y="56" width="144" height="188" rx="14" fill="#7c5228" stroke="#5a3a18" stroke-width="1.5"/>
+                  <line x1="156" y1="64" x2="156" y2="234" stroke="#f1f4ff" stroke-width="1.2"/>
+                  <line x1="186" y1="64" x2="186" y2="234" stroke="#e1e6ff" stroke-width="1.2"/>
+                  <line x1="214" y1="64" x2="214" y2="234" stroke="#d0d7ff" stroke-width="1.6"/>
+                  <line x1="244" y1="64" x2="244" y2="234" stroke="#c2cbff" stroke-width="1.8"/>
+                  <line x1="156" y1="96" x2="244" y2="96" stroke="#c5ad8b" stroke-width="2"/>
+                  <line x1="156" y1="126" x2="244" y2="126" stroke="#c5ad8b" stroke-width="2"/>
+                  <line x1="156" y1="156" x2="244" y2="156" stroke="#c5ad8b" stroke-width="2"/>
+                  <line x1="156" y1="186" x2="244" y2="186" stroke="#c5ad8b" stroke-width="2"/>
+                  <line x1="156" y1="216" x2="244" y2="216" stroke="#c5ad8b" stroke-width="2"/>
+                  <circle class="fret-finger ff1" cx="186" cy="138" r="11" fill="rgba(255,179,71,0.35)" stroke="#ffb347" stroke-width="1.2"/>
+                  <circle class="fret-finger ff2" cx="214" cy="168" r="11" fill="rgba(255,179,71,0.35)" stroke="#ffb347" stroke-width="1.2"/>
+                  <circle class="fret-finger ff3" cx="244" cy="198" r="11" fill="rgba(255,179,71,0.35)" stroke="#ffb347" stroke-width="1.2"/>
+                </g>
+              </svg>
+              <p class="story-label">Press fingerboard</p>
+            </div>
+
+            <!-- Scene 5: Play -->
+            <div class="story-scene scene-play" id="scene-play">
+              <svg viewBox="0 0 400 300" class="story-svg">
+                <g transform="translate(0 4)">
+                  <!-- Bass body -->
+                  <circle class="bass-body-shape" cx="200" cy="165" r="96" fill="url(#bassGrad)" stroke="#5a2a10" stroke-width="2"/>
+                  <defs>
+                    <linearGradient id="bassGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#f7934c"/>
+                      <stop offset="100%" stop-color="#b83b2c"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Pickups -->
+                  <rect x="165" y="120" width="70" height="18" rx="6" fill="#1a1d2e" stroke="#333" stroke-width="1"/>
+                  <rect x="165" y="155" width="70" height="18" rx="6" fill="#1a1d2e" stroke="#333" stroke-width="1"/>
+                  <!-- Bridge -->
+                  <rect x="175" y="210" width="50" height="10" rx="3" fill="#888" stroke="#666" stroke-width="1"/>
+                  <!-- Strings on body -->
+                  <line class="play-string ps1" x1="185" y1="50" x2="185" y2="220" stroke="#eee" stroke-width="1.5"/>
+                  <line class="play-string ps2" x1="193" y1="50" x2="193" y2="220" stroke="#ddd" stroke-width="1.5"/>
+                  <line class="play-string ps3" x1="205" y1="50" x2="205" y2="220" stroke="#ccc" stroke-width="2"/>
+                  <line class="play-string ps4" x1="215" y1="50" x2="215" y2="220" stroke="#bbb" stroke-width="2.5"/>
+                  <!-- Playing hand -->
+                  <g class="playing-hand">
+                    <ellipse cx="200" cy="190" rx="35" ry="18" fill="rgba(255,179,71,0.2)" stroke="#ffb347" stroke-width="1"/>
+                    <!-- Fingers -->
+                    <line class="finger f1" x1="180" y1="185" x2="185" y2="175" stroke="#ffb347" stroke-width="2.5" stroke-linecap="round"/>
+                    <line class="finger f2" x1="195" y1="183" x2="195" y2="172" stroke="#ffb347" stroke-width="2.5" stroke-linecap="round"/>
+                  </g>
+                  <!-- Sound waves -->
+                  <circle class="sound-wave sw1" cx="200" cy="140" r="0" fill="none" stroke="#48f2c8" stroke-width="1.5"/>
+                  <circle class="sound-wave sw2" cx="200" cy="140" r="0" fill="none" stroke="#48f2c8" stroke-width="1"/>
+                  <circle class="sound-wave sw3" cx="200" cy="140" r="0" fill="none" stroke="#48f2c8" stroke-width="0.5"/>
+                  <!-- Note symbols -->
+                  <text class="music-note mn1" x="90" y="80" font-size="28" fill="#48f2c8" opacity="0">1</text>
+                  <text class="music-note mn2" x="300" y="60" font-size="22" fill="#ffb347" opacity="0">3</text>
+                  <text class="music-note mn3" x="80" y="140" font-size="20" fill="#48f2c8" opacity="0">2</text>
+                  <text class="music-note mn4" x="310" y="130" font-size="26" fill="#ffb347" opacity="0">1</text>
+                </g>
+              </svg>
+              <p class="story-label">Let's groove!</p>
+            </div>
+            </div>
+            <nav class="story-progress" aria-label="Section navigation">
+              <a class="story-dot active" data-scene="0" href="#summary" aria-label="Summary">
+                <span class="material-icons">person</span>
+                <span class="dot-tooltip">Summary</span>
+              </a>
+              <a class="story-dot" data-scene="1" href="#skills" aria-label="Skills">
+                <span class="material-icons">build</span>
+                <span class="dot-tooltip">Skills</span>
+              </a>
+              <a class="story-dot" data-scene="2" href="#experience" aria-label="Experience">
+                <span class="material-icons">work</span>
+                <span class="dot-tooltip">Experience</span>
+              </a>
+              <a class="story-dot" data-scene="3" href="#projects" aria-label="Projects">
+                <span class="material-icons">folder</span>
+                <span class="dot-tooltip">Projects</span>
+              </a>
+              <a class="story-dot" data-scene="4" href="#contact" aria-label="Contact">
+                <span class="material-icons">mail</span>
+                <span class="dot-tooltip">Contact</span>
+              </a>
+            </nav>
+
+            <nav class="workflow-nav" aria-label="Workflow section navigation">
+              <span class="workflow-terminal start" aria-hidden="true">Start</span>
+              <a class="story-dot workflow-step active" data-scene="0" href="#summary" aria-label="Summary workflow step">
+                <span class="material-icons">person</span>
+                <span class="workflow-step-label">Summary</span>
+              </a>
+              <a class="story-dot workflow-step" data-scene="1" href="#skills" aria-label="Skills workflow step">
+                <span class="material-icons">build</span>
+                <span class="workflow-step-label">Skills</span>
+              </a>
+              <a class="story-dot workflow-step" data-scene="2" href="#experience" aria-label="Experience workflow step">
+                <span class="material-icons">work</span>
+                <span class="workflow-step-label">Experience</span>
+              </a>
+              <a class="story-dot workflow-step" data-scene="3" href="#projects" aria-label="Projects workflow step">
+                <span class="material-icons">folder</span>
+                <span class="workflow-step-label">Projects</span>
+              </a>
+              <a class="story-dot workflow-step" data-scene="4" href="#contact" aria-label="Contact workflow step">
+                <span class="material-icons">mail</span>
+                <span class="workflow-step-label">Contact</span>
+              </a>
+              <span class="workflow-terminal end" aria-hidden="true">End</span>
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Desktop right sidebar for contact links -->
+        <aside class="desktop-contact-sidebar" id="desktop-contact-sidebar" aria-label="Contact links">
+          <ul class="contact-links-list">
+            <li>
+              <a class="contact-link" href="mailto:you@example.com" aria-label="Send email">
+                <span class="material-icons">mail</span>
+                <span class="contact-link-label">Email</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="Visit LinkedIn profile">
+                <svg class="contact-brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v15H.22V8zm7.29 0h4.37v2.05h.06c.61-1.15 2.11-2.36 4.35-2.36 4.65 0 5.51 3.06 5.51 7.03V23h-4.56v-6.99c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V23H7.51V8z"/>
+                </svg>
+                <span class="contact-link-label">LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Visit Instagram profile">
+                <span class="material-icons">photo_camera</span>
+                <span class="contact-link-label">Instagram</span>
+              </a>
+            </li>
+          </ul>
+        </aside>
+
+        <div class="story-sections">
+
+      <!-- Skills -->
+      <section class="section" id="skills"></section>
+
+      <!-- Experience -->
+      <section class="section" id="experience"></section>
+
+      <!-- Projects -->
+      <section class="section" id="projects"></section>
+
+      <!-- Contact -->
+      <section class="section" id="contact"></section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/loading-screen.js" defer></script>
+  <script src="./js/cursor-dot.js" defer></script>
+  <script src="./js/fake-chatroom.js" defer></script>
+  <script type="module" src="./js/script.js"></script>
+</body>
+</html>
