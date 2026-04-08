@@ -6,7 +6,7 @@
 @media (min-width: 961px) {
   .workflow-nav {
     position: absolute;
-    right: 152px;
+    right: clamp(20px, 3vw, 56px);
     left: auto;
     top: 92px;
     z-index: 20;
