@@ -64,12 +64,12 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     min-width: 170px;
     text-decoration: none;
     color: rgba(232, 238, 255, 0.9);
-    padding: 8px 10px 8px 34px;
-    border-radius: 10px;
+    padding: 11px 12px 11px 36px;
+    border-radius: 12px;
     border: 1px solid rgba(154, 162, 194, 0.2);
     background: rgba(9, 13, 30, 0.64);
     transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
@@ -90,15 +90,15 @@
   }
 
   .workflow-step .material-icons {
-    font-size: 1rem;
+    font-size: var(--ui-icon-size);
     opacity: 0.88;
   }
 
   .workflow-step-label {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 650;
     white-space: nowrap;
   }
 
@@ -120,6 +120,14 @@
     box-shadow:
       0 0 0 3px rgba(9, 13, 30, 0.82),
       0 0 12px color-mix(in srgb, var(--scene-theme) 58%, transparent);
+  }
+
+  .workflow-step:focus-visible {
+    outline: none;
+    border-color: color-mix(in srgb, var(--scene-theme) 70%, white 30%);
+    box-shadow:
+      0 0 0 2px rgba(6, 9, 24, 0.95),
+      0 0 0 4px color-mix(in srgb, var(--scene-theme) 48%, transparent);
   }
 
   body:not(.use-classic-nav) .story-progress {
@@ -163,9 +171,9 @@
   }
 
   .workflow-step {
-    min-width: 54px;
-    width: 54px;
-    height: 54px;
+    min-width: 58px;
+    width: 58px;
+    height: 58px;
     border-radius: 14px;
     justify-content: center;
     padding: 0;
@@ -181,7 +189,7 @@
   }
 
   .workflow-step .material-icons {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     opacity: 0.94;
   }
 

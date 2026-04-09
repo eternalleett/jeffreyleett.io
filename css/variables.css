@@ -8,9 +8,11 @@
   --panel: rgba(9, 12, 30, 0.9);
   --border: rgba(212, 215, 255, 0.16);
   --text: #f8fbff;
-  --muted: #9aa2c2;
+  --muted: #b5bed8;
   --accent: #ffb347;
   --neon: #48f2c8;
+  --ui-icon-size: 1.08rem;
+  --ui-hit-size: 44px;
   --scene-theme: #48f2c8;
   --scene-plug: #48f2c8;
   --scene-amp: #7dd3fc;

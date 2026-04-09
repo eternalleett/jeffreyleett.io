@@ -19,7 +19,7 @@ function getHeaderOffset() {
 function animateScrollTo(targetY) {
   const startY = window.pageYOffset;
   const distance = targetY - startY;
-  const duration = Math.min(2800, Math.max(1600, Math.abs(distance) * 1.15));
+  const duration = Math.min(760, Math.max(320, Math.abs(distance) * 0.32));
 
   if (prefersReducedMotion || Math.abs(distance) < 8) {
     window.scrollTo(0, targetY);
@@ -326,11 +326,18 @@ document.querySelectorAll(".btn").forEach((btn) => {
   const storyCopyAltLead = document.getElementById("story-copy-alt-lead");
   const storyCopyAltPoints = document.getElementById("story-copy-alt-points");
   const orbitChips = Array.from(document.querySelectorAll(".orbit-chip"));
+  const desktopContactSidebar = document.getElementById("desktop-contact-sidebar");
+  const brandMark = document.querySelector(".brand-mark");
+  const headerContactLogo = document.querySelector(".header-contact-logo");
+  const contactOrbitPulls = Array.from(document.querySelectorAll(".contact-orbit-pull"));
+  const contactSection = document.getElementById("contact");
+  const mobileViewportMq = window.matchMedia("(max-width: 960px)");
   const mobileStoryMq = window.matchMedia("(max-width: 480px)");
   const sceneActivationOffset = 72;
   let observerCircumference = 0;
   let active = -1;
   let activeOrbitScene = -1;
+  let contactPullActive = false;
 
   if (observerProgress) {
     const radius = Number(observerProgress.getAttribute("r") || 54);
@@ -392,6 +399,7 @@ document.querySelectorAll(".btn").forEach((btn) => {
 
     updateOrbitChips(theme);
     updateContactSidebarVisibility(sceneIdx);
+    updateContactPullMotion(sceneIdx);
 
     if (theme && storyCopyTitle && storyCopyLead && storyCopyPoints) {
       storyCopyTitle.textContent = theme.title;
@@ -429,6 +437,14 @@ document.querySelectorAll(".btn").forEach((btn) => {
     const chips = theme?.chips || [];
     const sceneChanged = activeOrbitScene !== (theme?.scene ?? -1);
     activeOrbitScene = theme?.scene ?? -1;
+
+    // On mobile contact scene, hide orbit chips to keep the stage clean.
+    if (mobileViewportMq.matches && activeOrbitScene === 4) {
+      orbitChips.forEach((chip) => {
+        chip.classList.add("is-hidden");
+      });
+      return;
+    }
 
     orbitChips.forEach((chip, index) => {
       const item = chips[index];
@@ -827,7 +843,7 @@ document.querySelectorAll(".btn").forEach((btn) => {
 
     // Music notes float up
     animate(".music-note", {
-      opacity: [0, 1, 0],
+      opacity: [0, 0.64, 0],
       translateY: [0, -40],
       duration: 1400, ease: "outQuad",
       delay: function (_, i) { return 700 + i * 250; },
@@ -892,15 +908,144 @@ document.querySelectorAll(".btn").forEach((btn) => {
   }
 
   function updateContactSidebarVisibility(sceneIdx) {
-    const sidebar = document.getElementById("desktop-contact-sidebar");
-    if (!sidebar) return;
-    if (sceneIdx === 4) {
-      sidebar.style.opacity = "1";
-      sidebar.style.pointerEvents = "auto";
-    } else {
-      sidebar.style.opacity = "0";
-      sidebar.style.pointerEvents = "none";
+    if (!desktopContactSidebar) return;
+    const isContactScene = sceneIdx === 4;
+    desktopContactSidebar.style.opacity = isContactScene ? "0" : "1";
+    desktopContactSidebar.style.pointerEvents = isContactScene ? "none" : "auto";
+    desktopContactSidebar.style.filter = isContactScene ? "none" : "saturate(0.85)";
+  }
+
+  function clampValue(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function lerp(start, end, amount) {
+    return start + (end - start) * amount;
+  }
+
+  function getRectCenter(rect) {
+    return {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+    };
+  }
+
+  function getContactPullSource(index) {
+    const sourceRect = (brandMark || topbar)?.getBoundingClientRect();
+    const sourceOffsets = [-42, 0, 42];
+    if (!sourceRect) {
+      return {
+        x: window.innerWidth / 2 + (sourceOffsets[index] || 0),
+        y: Math.max(getHeaderOffset(), 32),
+      };
     }
+
+    const center = getRectCenter(sourceRect);
+    return {
+      x: center.x + (sourceOffsets[index] || 0),
+      y: center.y + 4,
+    };
+  }
+
+  function getContactPullTarget(index) {
+    const targetAngles = [226, 270, 314];
+    if (observerRingWrap) {
+      const orbitRect = observerRingWrap.getBoundingClientRect();
+      const center = getRectCenter(orbitRect);
+      const radius = orbitRect.width * 0.43;
+      const angle = (targetAngles[index] || 270) * (Math.PI / 180);
+      return {
+        x: center.x + Math.cos(angle) * radius,
+        y: center.y + Math.sin(angle) * radius,
+      };
+    }
+
+    const fallbackRect = scenes[4]?.getBoundingClientRect();
+    if (!fallbackRect) {
+      return {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      };
+    }
+
+    return getRectCenter(fallbackRect);
+  }
+
+  function renderContactPull(progress) {
+    if (!contactOrbitPulls.length) return;
+
+    if (mobileViewportMq.matches) {
+      contactOrbitPulls.forEach((item) => {
+        item.style.opacity = "0";
+        item.classList.remove("is-docked");
+      });
+      return;
+    }
+
+    contactOrbitPulls.forEach((item, index) => {
+      const staggeredProgress = clampValue((progress - index * 0.14) / 0.86, 0, 1);
+      const source = getContactPullSource(index);
+      const target = getContactPullTarget(index);
+      const x = lerp(source.x, target.x, staggeredProgress) - 24;
+      const y = lerp(source.y, target.y, staggeredProgress) - 24;
+      const scale = lerp(0.78, 1.02, staggeredProgress);
+      const rotate = lerp(index === 1 ? -8 : index === 0 ? -18 : 18, 0, staggeredProgress);
+      const opacity = staggeredProgress <= 0.001 ? 0 : lerp(0.26, 1, staggeredProgress);
+      const glow = lerp(0.18, 0.54, staggeredProgress);
+
+      item.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale}) rotate(${rotate}deg)`;
+      item.style.opacity = String(opacity);
+      item.style.setProperty("--contact-orbit-glow", String(glow));
+      item.classList.toggle("is-docked", staggeredProgress > 0.96);
+    });
+  }
+
+  function animateContactPull(activeState, immediate = false) {
+    if (!contactOrbitPulls.length) return;
+
+    if (mobileViewportMq.matches) {
+      renderContactPull(0);
+      contactPullActive = false;
+      return;
+    }
+
+    contactPullActive = activeState;
+    const endProgress = activeState ? 1 : 0;
+
+    if (immediate || prefersReducedMotion) {
+      renderContactPull(endProgress);
+      return;
+    }
+
+    const startProgress = activeState ? 0 : 1;
+    const tweenState = { value: startProgress };
+    renderContactPull(startProgress);
+
+    animate(tweenState, {
+      value: [startProgress, endProgress],
+      duration: activeState ? 880 : 560,
+      ease: activeState ? 'outBack' : 'outQuad',
+      onUpdate: () => {
+        renderContactPull(tweenState.value);
+      },
+      onComplete: () => {
+        renderContactPull(endProgress);
+      },
+    });
+  }
+
+  function updateContactPullMotion(sceneIdx) {
+    const active = sceneIdx === 4;
+    document.body.classList.toggle("contact-scene-active", active);
+    if (active !== contactPullActive) {
+      animateContactPull(active);
+    } else if (active) {
+      renderContactPull(1);
+    } else {
+      renderContactPull(0);
+    }
+    if (!headerContactLogo) return;
+    headerContactLogo.setAttribute("aria-current", active ? "page" : "false");
   }
 
   /* ── floating particles system ─── */
@@ -955,11 +1100,17 @@ document.querySelectorAll(".btn").forEach((btn) => {
     });
   }, { passive: true });
 
+  window.addEventListener("resize", function () {
+    const state = currentSceneFromSections();
+    animateContactPull(state.scene === 4, true);
+  });
+
   const initialState = currentSceneFromSections();
   showScene(initialState.scene);
   const initialStepProgress = scenes.length > 1 ? initialState.scene / (scenes.length - 1) : 1;
   updateObserver(initialStepProgress, initialState.scene, initialState.theme);
   updateCopyMotion(initialState.theme);
+  animateContactPull(initialState.scene === 4, true);
 
   /* ── initialize all continuous animations ─── */
   initFloatingParticles();

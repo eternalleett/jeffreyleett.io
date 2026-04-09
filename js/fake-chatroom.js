@@ -335,10 +335,14 @@
     if (!root || !minimizeBtn) return;
     root.classList.toggle("is-minimized", minimized);
     minimizeBtn.setAttribute("aria-expanded", minimized ? "false" : "true");
-    minimizeBtn.setAttribute("title", minimized ? "Expand chat" : "Minimize chat");
+    minimizeBtn.setAttribute("title", minimized ? "Expand chat panel" : "Minimize chat panel");
+    minimizeBtn.setAttribute("aria-label", minimized ? "Expand chat panel" : "Minimize chat panel");
 
     const icon = minimizeBtn.querySelector(".material-icons");
     if (icon) icon.textContent = minimized ? "open_in_full" : "remove";
+
+    const label = minimizeBtn.querySelector(".fake-chatroom-toggle-label");
+    if (label) label.textContent = minimized ? "Open" : "Hide";
   }
 
   function setupMinimize() {
@@ -393,7 +397,7 @@
     minimizeBtn.type = "button";
     minimizeBtn.className = "fake-chatroom-minimize";
     minimizeBtn.setAttribute("aria-label", "Toggle chat panel");
-    minimizeBtn.innerHTML = '<span class="material-icons" aria-hidden="true">remove</span>';
+    minimizeBtn.innerHTML = '<span class="material-icons" aria-hidden="true">remove</span><span class="fake-chatroom-toggle-label">Hide</span>';
 
     headMain.appendChild(title);
     headMain.appendChild(status);

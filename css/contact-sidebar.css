@@ -7,6 +7,17 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
+  justify-content: center;
+  width: max-content;
+}
+
+.contact-links-heading {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 0.67rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(228, 236, 255, 0.86);
 }
 
 .contact-links-list {
@@ -14,8 +25,10 @@
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 12px;
 }
 
 .contact-link {
@@ -23,13 +36,15 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  color: rgba(248, 251, 255, 0.7);
+  color: rgba(242, 246, 255, 0.9);
   text-decoration: none;
-  padding: 12px;
+  min-height: var(--ui-hit-size);
+  min-width: 96px;
+  padding: 10px 12px;
   border-radius: 12px;
   transition: all 0.3s ease;
-  border: 1px solid color-mix(in srgb, var(--scene-theme) 24%, transparent);
-  background: rgba(13, 19, 43, 0.4);
+  border: 1px solid color-mix(in srgb, var(--scene-theme) 34%, rgba(154, 162, 194, 0.22));
+  background: rgba(13, 19, 43, 0.66);
 }
 
 .contact-link:hover {
@@ -40,17 +55,34 @@
 }
 
 .contact-link .material-icons {
-  font-size: 24px;
+  font-size: var(--ui-icon-size);
 }
 
 .contact-brand-icon {
-  width: 24px;
-  height: 24px;
+  width: var(--ui-icon-size);
+  height: var(--ui-icon-size);
 }
 
 .contact-link-label {
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+.contact-link:focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--scene-theme) 72%, white 28%);
+  box-shadow:
+    0 0 0 2px rgba(8, 12, 30, 0.92),
+    0 0 0 4px color-mix(in srgb, var(--scene-theme) 48%, transparent);
+}
+
+.mobile-contact-bar {
+  display: none;
+  width: 100%;
+}
+
+.mobile-contact-link {
+  text-decoration: none;
 }

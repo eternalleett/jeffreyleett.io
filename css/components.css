@@ -149,11 +149,24 @@
 
 .item-body ul {
   margin-top: 4px;
-  padding-left: 18px;
+  list-style: none;
+  padding-left: 0;
 }
 
 .item-body li {
+  position: relative;
+  padding-left: 22px;
   margin-bottom: 3px;
+}
+
+.item-body li::before {
+  content: "pets";
+  font-family: "Material Icons";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--scene-theme) 78%, white 22%);
 }
 
 .contact-grid {

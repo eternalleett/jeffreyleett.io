@@ -4,11 +4,8 @@
 
   const progress = document.getElementById("page-loader-progress");
   const track = loader.querySelector(".page-loader-track");
-  const minDuration = 3000;
+  const minDuration = 1650;
   const start = performance.now();
-
-  document.documentElement.style.overflow = "hidden";
-  if (document.body) document.body.style.overflow = "hidden";
 
   let rafId = 0;
 
@@ -18,7 +15,7 @@
     const pct = Math.round((elapsed / minDuration) * 100);
     if (progress) progress.textContent = `${pct}%`;
 
-    // Move beams from both edges to center over 3 seconds.
+    // Move beams from both edges to center over the shortened intro window.
     const beamPct = Math.min(ratio * 50, 50);
     const beamTarget = track || loader;
     beamTarget.style.setProperty("--beam-left", `${beamPct}%`);
@@ -38,8 +35,6 @@
 
     window.setTimeout(() => {
       loader.remove();
-      document.documentElement.style.overflow = "";
-      if (document.body) document.body.style.overflow = "";
     }, 420);
   }
 
